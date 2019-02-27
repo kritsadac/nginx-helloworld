@@ -3,7 +3,8 @@ FROM debian:8
 MAINTAINER MiJacK <mijack@mijack.net>
 RUN apt-get update
 RUN apt-get install nginx -y
-RUN echo 'hello world  2.1' > /var/www/html/index.html
+ADD index.html /var/www/html/index.html
+ADD app_version /
 RUN echo 'ok' > /var/www/html/healthcheck.html
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY entrypoint.sh /
